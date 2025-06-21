@@ -99,7 +99,7 @@ describe('FeedbackForm Integration Tests', () => {
 
       // Find comment textarea
       const commentTextarea = formItems.find(item =>
-        item.getAttribute && item.getAttribute('data-testid') === testIds.feedbackForm.comment
+        item.getAttribute != null && item.getAttribute('data-testid') === testIds.feedbackForm.comment
       ) as unknown as HTMLTextAreaElement;
 
       expect(commentTextarea).toBeDefined();
@@ -111,7 +111,7 @@ describe('FeedbackForm Integration Tests', () => {
 
       // Find and click submit button
       const buttonsContainer = formItems.find(item =>
-        item.classList && item.classList.contains('mynah-feedback-form-buttons-container')
+        item.classList?.contains('mynah-feedback-form-buttons-container')
       );
 
       expect(buttonsContainer).toBeDefined();
@@ -156,7 +156,7 @@ describe('FeedbackForm Integration Tests', () => {
       // Get form items and add comment
       const formItems = feedbackForm.defaultFeedbackFormItems;
       const commentTextarea = formItems.find(item =>
-        item.getAttribute && item.getAttribute('data-testid') === testIds.feedbackForm.comment
+        item.getAttribute != null && item.getAttribute('data-testid') === testIds.feedbackForm.comment
       ) as unknown as HTMLTextAreaElement;
 
       document.body.appendChild(commentTextarea);
@@ -165,7 +165,7 @@ describe('FeedbackForm Integration Tests', () => {
 
       // Find and click cancel button
       const buttonsContainer = formItems.find(item =>
-        item.classList && item.classList.contains('mynah-feedback-form-buttons-container')
+        item.classList?.contains('mynah-feedback-form-buttons-container')
       );
 
       expect(buttonsContainer).toBeDefined();
@@ -203,14 +203,14 @@ describe('FeedbackForm Integration Tests', () => {
       // Get comment component and verify initial value
       const formItems = feedbackForm.defaultFeedbackFormItems;
       const commentTextarea = formItems.find(item =>
-        item.getAttribute && item.getAttribute('data-testid') === testIds.feedbackForm.comment
+        item.getAttribute != null && item.getAttribute('data-testid') === testIds.feedbackForm.comment
       ) as unknown as HTMLTextAreaElement;
 
       expect(commentTextarea.value).toBe('Initial comment');
 
       // Submit the form
       const buttonsContainer = formItems.find(item =>
-        item.classList && item.classList.contains('mynah-feedback-form-buttons-container')
+        item.classList?.contains('mynah-feedback-form-buttons-container')
       );
 
       document.body.appendChild(buttonsContainer as HTMLElement);
@@ -235,7 +235,7 @@ describe('FeedbackForm Integration Tests', () => {
 
       const formItems = feedbackForm.defaultFeedbackFormItems;
       const commentTextarea = formItems.find(item =>
-        item.getAttribute && item.getAttribute('data-testid') === testIds.feedbackForm.comment
+        item.getAttribute != null && item.getAttribute('data-testid') === testIds.feedbackForm.comment
       ) as unknown as HTMLTextAreaElement;
 
       // Verify comment component is properly integrated
@@ -298,7 +298,7 @@ describe('FeedbackForm Integration Tests', () => {
       // Modify form state
       const formItems = feedbackForm.defaultFeedbackFormItems;
       const commentTextarea = formItems.find(item =>
-        item.getAttribute && item.getAttribute('data-testid') === testIds.feedbackForm.comment
+        item.getAttribute != null && item.getAttribute('data-testid') === testIds.feedbackForm.comment
       ) as unknown as HTMLTextAreaElement;
 
       document.body.appendChild(commentTextarea);
@@ -307,7 +307,7 @@ describe('FeedbackForm Integration Tests', () => {
 
       // Submit form
       const buttonsContainer = formItems.find(item =>
-        item.classList && item.classList.contains('mynah-feedback-form-buttons-container')
+        item.classList?.contains('mynah-feedback-form-buttons-container')
       );
 
       document.body.appendChild(buttonsContainer as HTMLElement);
@@ -348,7 +348,7 @@ describe('FeedbackForm Integration Tests', () => {
       // Verify form items are reset
       const formItems = feedbackForm.defaultFeedbackFormItems;
       const commentTextarea = formItems.find(item =>
-        item.getAttribute && item.getAttribute('data-testid') === testIds.feedbackForm.comment
+        item.getAttribute != null && item.getAttribute('data-testid') === testIds.feedbackForm.comment
       ) as unknown as HTMLTextAreaElement;
 
       expect(commentTextarea.value).toBe('');
@@ -393,7 +393,7 @@ describe('FeedbackForm Integration Tests', () => {
 
       const formItems = feedbackForm.defaultFeedbackFormItems;
       const buttonsContainer = formItems.find(item =>
-        item.classList && item.classList.contains('mynah-feedback-form-buttons-container')
+        item.classList?.contains('mynah-feedback-form-buttons-container')
       );
 
       document.body.appendChild(buttonsContainer as HTMLElement);

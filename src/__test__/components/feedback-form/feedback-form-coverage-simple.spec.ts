@@ -4,7 +4,7 @@
  */
 
 import { FeedbackForm } from '../../../components/feedback-form/feedback-form';
-import { MynahEventNames, FeedbackPayload, ChatItemButton, ChatItemFormItem } from '../../../static';
+import { MynahEventNames, FeedbackPayload, ChatItemFormItem } from '../../../static';
 import { MynahUIGlobalEvents } from '../../../helper/events';
 import { Config } from '../../../helper/config';
 import { MynahUITabsStore } from '../../../helper/tabs-store';
@@ -160,7 +160,7 @@ describe('FeedbackForm Simple Coverage Tests', () => {
       // Get the comment component from the form items
       const formItems = feedbackForm.defaultFeedbackFormItems;
       const commentTextarea = formItems.find(item =>
-        item.getAttribute && item.getAttribute('data-testid') === testIds.feedbackForm.comment
+        item.getAttribute != null && item.getAttribute('data-testid') === testIds.feedbackForm.comment
       ) as unknown as HTMLTextAreaElement;
 
       expect(commentTextarea).toBeDefined();
@@ -172,7 +172,7 @@ describe('FeedbackForm Simple Coverage Tests', () => {
 
       // Submit the form to verify the comment was captured
       const buttonsContainer = feedbackForm.defaultFeedbackFormItems.find(item =>
-        item.classList && item.classList.contains('mynah-feedback-form-buttons-container')
+        item.classList?.contains('mynah-feedback-form-buttons-container')
       );
 
       document.body.appendChild(buttonsContainer as HTMLElement);
@@ -244,7 +244,7 @@ describe('FeedbackForm Simple Coverage Tests', () => {
       feedbackForm = new FeedbackForm();
 
       const buttonsContainer = feedbackForm.defaultFeedbackFormItems.find(item =>
-        item.classList && item.classList.contains('mynah-feedback-form-buttons-container')
+        item.classList?.contains('mynah-feedback-form-buttons-container')
       );
 
       document.body.appendChild(buttonsContainer as HTMLElement);

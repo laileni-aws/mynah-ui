@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { FeedbackFormComment, FeedbackFormCommentProps } from '../../../components/feedback-form/feedback-form-comment';
+import { FeedbackFormComment } from '../../../components/feedback-form/feedback-form-comment';
 import { Config } from '../../../helper/config';
 import testIds from '../../../helper/test-ids';
 
@@ -200,7 +200,7 @@ describe('FeedbackFormComment Component', () => {
 
     it('should work with onChange callback that modifies external state', () => {
       let externalState = '';
-      const stateUpdater = (value: string) => {
+      const stateUpdater = (value: string): void => {
         externalState = value.toUpperCase();
       };
 

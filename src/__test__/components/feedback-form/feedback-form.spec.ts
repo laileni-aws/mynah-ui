@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { FeedbackForm, FeedbackFormProps } from '../../../components/feedback-form/feedback-form';
+import { FeedbackForm } from '../../../components/feedback-form/feedback-form';
 import { MynahEventNames, FeedbackPayload, ChatItemButton, ChatItemFormItem } from '../../../static';
 import { MynahUIGlobalEvents } from '../../../helper/events';
 import { Config } from '../../../helper/config';
@@ -188,7 +188,7 @@ describe('FeedbackForm Component', () => {
     it('should dispatch FEEDBACK_SET event when submit button is clicked', () => {
       // Get the buttons container
       const buttonsContainer = feedbackForm.defaultFeedbackFormItems.find(item =>
-        item.classList && item.classList.contains('mynah-feedback-form-buttons-container')
+        item.classList?.contains('mynah-feedback-form-buttons-container')
       );
 
       expect(buttonsContainer).toBeDefined();
@@ -215,7 +215,7 @@ describe('FeedbackForm Component', () => {
 
     it('should close form after submission', () => {
       const buttonsContainer = feedbackForm.defaultFeedbackFormItems.find(item =>
-        item.classList && item.classList.contains('mynah-feedback-form-buttons-container')
+        item.classList?.contains('mynah-feedback-form-buttons-container')
       );
 
       document.body.appendChild(buttonsContainer as HTMLElement);
@@ -237,7 +237,7 @@ describe('FeedbackForm Component', () => {
 
     it('should close form when cancel button is clicked', () => {
       const buttonsContainer = feedbackForm.defaultFeedbackFormItems.find(item =>
-        item.classList && item.classList.contains('mynah-feedback-form-buttons-container')
+        item.classList?.contains('mynah-feedback-form-buttons-container')
       );
 
       expect(buttonsContainer).toBeDefined();

@@ -5,7 +5,6 @@
 
 import { TextInput, TextInputInternal, TextInputProps } from '../../../components/form-items/text-input';
 import { MynahIcons } from '../../../components/icon';
-import { ValidationPattern } from '../../../static';
 import { DomBuilder } from '../../../helper/dom';
 
 // Mock the validator helper

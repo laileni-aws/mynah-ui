@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { DetailedListWrapper, DetailedListWrapperProps } from '../../../components/detailed-list/detailed-list';
-import { DetailedList, DetailedListItem, DetailedListItemGroup, ChatItemButton } from '../../../static';
+import { DetailedListWrapper } from '../../../components/detailed-list/detailed-list';
+import { DetailedList } from '../../../static';
 import { MynahIcons } from '../../../components/icon';
 
 // Mock the form items wrapper
@@ -23,7 +23,6 @@ describe('DetailedListWrapper Component', () => {
   let mockOnGroupClick: jest.Mock;
   let mockOnItemSelect: jest.Mock;
   let mockOnItemClick: jest.Mock;
-  let mockOnItemActionClick: jest.Mock;
   let mockOnFilterActionClick: jest.Mock;
 
   const basicDetailedList: DetailedList = {
@@ -126,7 +125,6 @@ describe('DetailedListWrapper Component', () => {
     mockOnGroupClick = jest.fn();
     mockOnItemSelect = jest.fn();
     mockOnItemClick = jest.fn();
-    mockOnItemActionClick = jest.fn();
     mockOnFilterActionClick = jest.fn();
     jest.clearAllMocks();
 
@@ -135,7 +133,8 @@ describe('DetailedListWrapper Component', () => {
 
     // Mock requestAnimationFrame
     global.requestAnimationFrame = jest.fn((cb) => {
-      cb(0);
+      const timestamp = 0;
+      cb(timestamp);
       return 0;
     });
   });
@@ -467,7 +466,7 @@ describe('DetailedListWrapper Component', () => {
 
       // Mock a block that's in viewport but not rendered
       const testBlock = itemsBlocks[6] as HTMLElement; // Beyond first 5
-      if (testBlock) {
+      if (testBlock != null) {
         Object.defineProperty(testBlock, 'offsetTop', { value: 100 });
         Object.defineProperty(testBlock, 'offsetHeight', { value: 200 });
 
@@ -494,7 +493,7 @@ describe('DetailedListWrapper Component', () => {
 
       // Mock a block that's out of viewport
       const testBlock = itemsBlocks[0] as HTMLElement;
-      if (testBlock) {
+      if (testBlock != null) {
         Object.defineProperty(testBlock, 'offsetTop', { value: 0 });
         Object.defineProperty(testBlock, 'offsetHeight', { value: 200 });
 

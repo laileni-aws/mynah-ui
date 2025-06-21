@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { PromptTopBar, PromptTopBarProps } from '../../../../../components/chat-item/prompt-input/prompt-top-bar/prompt-top-bar';
+import { PromptTopBar } from '../../../../../components/chat-item/prompt-input/prompt-top-bar/prompt-top-bar';
 import { QuickActionCommand, ChatItemButton, MynahEventNames } from '../../../../../static';
 import { MynahIcons } from '../../../../../components/icon';
 import { MynahUIGlobalEvents } from '../../../../../helper/events';
@@ -60,7 +60,6 @@ describe('PromptTopBar Component', () => {
   let mockOnTopBarTitleClick: jest.Mock;
   let mockOnContextItemAdd: jest.Mock;
   let mockOnContextItemRemove: jest.Mock;
-  let mockOnTopBarButtonClick: jest.Mock;
   let mockGlobalEvents: any;
 
   const basicContextItems: QuickActionCommand[] = [
@@ -89,7 +88,6 @@ describe('PromptTopBar Component', () => {
     mockOnTopBarTitleClick = jest.fn();
     mockOnContextItemAdd = jest.fn();
     mockOnContextItemRemove = jest.fn();
-    mockOnTopBarButtonClick = jest.fn();
 
     mockGlobalEvents = {
       addListener: jest.fn(),

@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { SourceLinkHeader, SourceLinkHeaderProps } from '../../../components/source-link/source-link-header';
-import { SourceLink, SourceLinkMetaData, MynahEventNames } from '../../../static';
+import { SourceLinkHeader } from '../../../components/source-link/source-link-header';
+import { SourceLink, MynahEventNames } from '../../../static';
 import { MynahUIGlobalEvents } from '../../../helper/events';
 
 // Mock the global events
@@ -528,7 +528,7 @@ describe('SourceLinkHeader Component', () => {
 
     it('should hide preview on root focus loss', () => {
       const mockAddListener = jest.fn();
-      let focusCallback: (data: {focusState: boolean}) => void;
+      let focusCallback: ((data: {focusState: boolean}) => void) | undefined;
 
       (MynahUIGlobalEvents.getInstance as jest.Mock).mockReturnValue({
         addListener: (event: string, callback: any) => {
@@ -551,7 +551,9 @@ describe('SourceLinkHeader Component', () => {
       jest.advanceTimersByTime(500);
 
       // Simulate root focus loss
-      focusCallback!({ focusState: false });
+      if (focusCallback != null) {
+        focusCallback({ focusState: false });
+      }
 
       // Should hide preview (tested through mock)
       expect(mockAddListener).toHaveBeenCalled();

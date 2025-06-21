@@ -4,7 +4,7 @@
  */
 
 import { TopBarButton, TopBarButtonOverlayProps } from '../../../../../components/chat-item/prompt-input/prompt-top-bar/top-bar-button';
-import { ChatItemButton, DetailedList, DetailedListItem } from '../../../../../static';
+import { ChatItemButton, DetailedList } from '../../../../../static';
 import { MynahIcons } from '../../../../../components/icon';
 
 // Mock the overlay component

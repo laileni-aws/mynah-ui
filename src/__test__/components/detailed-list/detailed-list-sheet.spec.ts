@@ -4,7 +4,7 @@
  */
 
 import { DetailedListSheet, DetailedListSheetProps } from '../../../components/detailed-list/detailed-list-sheet';
-import { DetailedList, DetailedListItem, ChatItemButton, MynahEventNames } from '../../../static';
+import { DetailedList, ChatItemButton, MynahEventNames } from '../../../static';
 import { MynahUIGlobalEvents } from '../../../helper/events';
 import { MynahIcons } from '../../../components/icon';
 

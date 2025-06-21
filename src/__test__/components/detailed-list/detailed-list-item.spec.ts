@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { DetailedListItemWrapper, DetailedListItemWrapperProps } from '../../../components/detailed-list/detailed-list-item';
-import { DetailedListItem, ChatItemButton } from '../../../static';
+import { DetailedListItemWrapper } from '../../../components/detailed-list/detailed-list-item';
+import { DetailedListItem } from '../../../static';
 import { MynahIcons } from '../../../components/icon';
 
 // Mock the overlay component
@@ -280,7 +280,7 @@ describe('DetailedListItemWrapper Component', () => {
       const itemWithSingleAction: DetailedListItem = {
         id: 'single-action',
         title: 'Single Action Item',
-        actions: [ itemWithActions.actions![0] ]
+        actions: (itemWithActions.actions != null) ? [ itemWithActions.actions[0] ] : []
       };
 
       detailedListItem = new DetailedListItemWrapper({
@@ -333,7 +333,7 @@ describe('DetailedListItemWrapper Component', () => {
       const itemWithSingleAction: DetailedListItem = {
         id: 'single-action',
         title: 'Single Action Item',
-        actions: [ itemWithActions.actions![0] ]
+        actions: (itemWithActions.actions != null) ? [ itemWithActions.actions[0] ] : []
       };
 
       detailedListItem = new DetailedListItemWrapper({
@@ -345,7 +345,7 @@ describe('DetailedListItemWrapper Component', () => {
       const actionButton = document.body.querySelector('.mynah-detailed-list-item-actions button') as HTMLElement;
       actionButton.click();
 
-      expect(mockOnActionClick).toHaveBeenCalledWith(itemWithActions.actions![0], itemWithSingleAction);
+      expect(mockOnActionClick).toHaveBeenCalledWith(itemWithActions.actions?.[0], itemWithSingleAction);
     });
 
     it('should show action menu overlay when menu button is clicked', () => {
@@ -356,7 +356,7 @@ describe('DetailedListItemWrapper Component', () => {
       document.body.appendChild(detailedListItem.render);
 
       const menuButton = document.body.querySelector('[data-testid*="action-menu"]') as HTMLElement;
-      if (menuButton) {
+      if (menuButton != null) {
         menuButton.click();
 
         const { Overlay } = jest.requireMock('../../../components/overlay');
@@ -687,7 +687,6 @@ describe('DetailedListItemWrapper Component', () => {
       detailedListItem = new DetailedListItemWrapper({ listItem: itemWithStatus });
 
       // Simulate showing tooltip
-      const status = document.createElement('div');
       detailedListItem.hideTooltip();
 
       // Should not throw error
@@ -808,12 +807,12 @@ describe('DetailedListItemWrapper Component', () => {
 
       // Show menu first
       const menuButton = document.body.querySelector('[data-testid*="action-menu"]') as HTMLElement;
-      if (menuButton) {
+      if (menuButton != null) {
         menuButton.click();
 
         // Now test hiding - this should be called internally when action is clicked
         const actionButton = document.body.querySelector('.mynah-detailed-list-item-actions button') as HTMLElement;
-        if (actionButton) {
+        if (actionButton != null) {
           actionButton.click();
           expect(mockOnActionClick).toHaveBeenCalled();
         }
@@ -866,7 +865,7 @@ describe('DetailedListItemWrapper Component', () => {
 
       // Trigger the menu button click to create overlay
       const menuButton = document.body.querySelector('[data-testid*="action-menu"]') as HTMLElement;
-      if (menuButton) {
+      if (menuButton != null) {
         menuButton.click();
 
         const { Overlay } = jest.requireMock('../../../components/overlay');
@@ -895,7 +894,7 @@ describe('DetailedListItemWrapper Component', () => {
       // Find the menu button (ellipsis button)
       const menuButton = document.body.querySelector('[data-testid*="action-menu"]') as HTMLElement;
 
-      if (menuButton) {
+      if (menuButton != null) {
         // Click the menu button to trigger the overlay
         const clickEvent = new MouseEvent('click', { bubbles: true });
         menuButton.dispatchEvent(clickEvent);
@@ -962,7 +961,7 @@ describe('DetailedListItemWrapper Component', () => {
 
       // Show the menu first
       const menuButton = document.body.querySelector('[data-testid*="action-menu"]') as HTMLElement;
-      if (menuButton) {
+      if (menuButton != null) {
         menuButton.click();
 
         // Now simulate clicking an action in the overlay which should close it

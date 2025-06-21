@@ -1,5 +1,4 @@
 import { ChatItemTreeView } from '../../chat-item/chat-item-tree-view';
-import { MynahIcons } from '../../icon';
 
 describe('ChatItemTreeView', () => {
   it('should render tree view with file node', () => {

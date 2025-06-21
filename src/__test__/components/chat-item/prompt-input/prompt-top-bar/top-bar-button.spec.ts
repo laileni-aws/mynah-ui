@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { TopBarButton, TopBarButtonProps, TopBarButtonOverlayProps } from '../../../../../components/chat-item/prompt-input/prompt-top-bar/top-bar-button';
-import { ChatItemButton, DetailedList, DetailedListItem } from '../../../../../static';
+import { TopBarButton } from '../../../../../components/chat-item/prompt-input/prompt-top-bar/top-bar-button';
+import { ChatItemButton } from '../../../../../static';
 import { MynahIcons } from '../../../../../components/icon';
 
 // Mock the overlay component

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { SourceLinkCard, SourceLinkCardProps } from '../../../components/source-link/source-link';
+import { SourceLinkCard } from '../../../components/source-link/source-link';
 import { SourceLink } from '../../../static';
 
 describe('SourceLinkCard Component', () => {

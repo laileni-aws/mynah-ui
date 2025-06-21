@@ -4,7 +4,6 @@
  */
 
 import { TextArea, TextAreaInternal, TextAreaProps } from '../../../components/form-items/text-area';
-import { ValidationPattern } from '../../../static';
 import { DomBuilder } from '../../../helper/dom';
 
 // Mock the validator helper

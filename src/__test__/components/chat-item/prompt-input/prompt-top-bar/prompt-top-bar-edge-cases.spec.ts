@@ -4,7 +4,7 @@
  */
 
 import { PromptTopBar } from '../../../../../components/chat-item/prompt-input/prompt-top-bar/prompt-top-bar';
-import { QuickActionCommand, MynahEventNames } from '../../../../../static';
+import { QuickActionCommand } from '../../../../../static';
 import { MynahIcons } from '../../../../../components/icon';
 
 // Mock the global events
@@ -41,7 +41,6 @@ jest.mock('../../../../../components/overlay', () => {
 
 describe('PromptTopBar Edge Cases', () => {
   let promptTopBar: PromptTopBar;
-  let mockOnContextItemRemove: jest.Mock;
 
   const basicContextItems: QuickActionCommand[] = [
     {
@@ -60,7 +59,6 @@ describe('PromptTopBar Edge Cases', () => {
 
   beforeEach(() => {
     document.body.innerHTML = '';
-    mockOnContextItemRemove = jest.fn();
     jest.clearAllMocks();
     jest.useFakeTimers();
   });
