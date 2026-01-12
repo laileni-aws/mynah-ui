@@ -5,7 +5,6 @@ jobs:
         runs-on: ubuntu-latest
         permissions:
           contents: read
-          packages: write
         steps:
           # Checkout the PR branch
           - name: Checkout Code
@@ -72,5 +71,5 @@ jobs:
               retention-days: 30
     report:
       needs: e2e-linux
-      if: always()
+      if: always() && github.event.pull_request.head.repo.full_name == github.repository
       uses: ./.github/workflows/test-report.yml
