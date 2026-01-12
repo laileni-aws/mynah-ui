@@ -17,6 +17,17 @@
     box-sizing: border-box;
     max-width: 100%;
     max-height: calc(2 * var(--mynah-sizing-12));
+    &:hover {
+        > .mynah-card-body {
+            > .mynah-syntax-highlighter {
+                pointer-events: auto;
+                user-select: text;
+                pre {
+                    text-overflow: unset;
+                }
+            }
+        }
+    }
     > .mynah-button {
         position: absolute;
         background-color: var(--mynah-card-bg) !important;

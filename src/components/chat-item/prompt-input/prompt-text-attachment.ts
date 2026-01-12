@@ -25,14 +25,7 @@ export class PromptTextAttachment {
       testId: testIds.prompt.attachment,
       padding: 'none',
       border: false,
-      events: {
-        mouseenter: () => {
-          this.showPreviewOverLay();
-        },
-        mouseleave: () => {
-          this.closePreviewOverLay();
-        },
-      },
+      events: {},
       classNames: [ 'mynah-prompt-attachment-container' ],
       children: [
         new CardBody({

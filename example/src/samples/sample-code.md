@@ -11,7 +11,7 @@ const mynahUI = new MynahUI({
                         messageId: 'welcome-message'
                     },
                 ],
-                promptInputPlaceholder: 'Type your question',
+                promptInputPlaceholder: 'Type your question', // This is a long comment
             }
         }
     },
