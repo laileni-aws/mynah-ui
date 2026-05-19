@@ -245,6 +245,35 @@ export const QuickActionCommands: QuickActionCommandGroup[] = [
         ],
     },
     {
+        groupName: 'Examples of **tab header introductions**',
+        commands: [
+            {
+                command: Commands.OPEN_TAB_HEADER_CENTERED,
+                icon: MynahIcons.Q,
+                description:
+                    'Opens a new tab whose `tabHeaderDetails` uses the `centered` flag to stack icon over title in a single column.',
+            },
+            {
+                command: Commands.OPEN_TAB_HEADER_WITH_TIP,
+                icon: MynahIcons.MAGIC,
+                description:
+                    'Opens a new tab whose `tabHeaderDetails` uses the new `tip` field alongside the default left-aligned layout.',
+            },
+            {
+                command: Commands.OPEN_WELCOME_INTRO_TAB,
+                icon: MynahIcons.STAR,
+                description:
+                    'Opens an Amazon Q welcome splash that combines `centered`, `tip`, and `description` entirely via `tabHeaderDetails`.',
+            },
+            {
+                command: Commands.OPEN_NO_ICON_CENTERED_TAB,
+                icon: MynahIcons.LIGHT_BULB,
+                description:
+                    'Opens a centered welcome splash without an icon to confirm `icon` is optional in `tabHeaderDetails`.',
+            },
+        ],
+    },
+    {
         groupName: 'Examples of **system wide components**',
         commands: [
             {

@@ -98,6 +98,22 @@
             padding-top: var(--mynah-sizing-1);
             padding-bottom: var(--mynah-sizing-12);
         }
+        // When the tab header is rendered in the centered (welcome / intro)
+        // layout, restore the default chat-wrapper flow so the prompt input
+        // stays at the bottom and the chat items container can grow normally.
+        // Existing non-compact tab headers (e.g. account details, explore)
+        // are unaffected because they do not opt into the centered class.
+        &:has(> .mynah-ui-tab-header-details.mynah-ui-title-description-icon-wrapper-centered) {
+            > .mynah-chat-wrapper-footer-spacer {
+                flex-grow: 0 !important;
+            }
+            > .mynah-chat-wrapper-header-spacer {
+                flex-grow: 0 !important;
+            }
+            > .mynah-chat-items-container {
+                flex-grow: 1;
+            }
+        }
         > .mynah-chat-items-container > .mynah-chat-items-conversation-container {
             > .mynah-chat-item-card {
                 &:not(.mynah-chat-item-prompt, .mynah-chat-item-system-prompt) {

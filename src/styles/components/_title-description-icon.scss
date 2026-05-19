@@ -30,4 +30,69 @@
     > .mynah-ui-title-description-icon-description {
         grid-area: description;
     }
+
+    // Default (left-aligned) layout extended with the optional tip card.
+    // The tip spans the full width of the wrapper and sits between the
+    // title row and the description row.
+    &:has(> .mynah-ui-title-description-icon-tip) {
+        grid-template-areas:
+            'icon title'
+            'tip  tip'
+            '.    description';
+    }
+    > .mynah-ui-title-description-icon-tip {
+        grid-area: tip;
+    }
+}
+
+// Centered variant: stacks icon, title, optional tip, and description in a
+// single centered column. Used for welcome / introduction surfaces.
+.mynah-ui-title-description-icon-wrapper.mynah-ui-title-description-icon-wrapper-centered {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    row-gap: var(--mynah-sizing-2);
+
+    > .mynah-ui-title-description-icon-icon,
+    > .mynah-ui-title-description-icon-title,
+    > .mynah-ui-title-description-icon-description {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    // Description is meant to be a helper line, not a heading. Reset it to
+    // the default body size so the surrounding chat-wrapper rule that
+    // upsizes title and description for tab headers does not apply here.
+    > .mynah-ui-title-description-icon-description {
+        font-size: var(--mynah-font-size-medium);
+        font-weight: normal;
+    }
+}
+
+// Optional inline tip card (e.g. "Did you know?"). Picks up theme colors
+// via existing CSS variables so it stays light/dark theme aware.
+.mynah-ui-title-description-icon-wrapper > .mynah-ui-title-description-icon-tip {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: var(--mynah-sizing-3) var(--mynah-sizing-4);
+    border-radius: var(--mynah-card-radius);
+    background-color: var(--mynah-color-deep);
+    border: var(--mynah-border-width) solid var(--mynah-color-border-default);
+    color: var(--mynah-color-text-default);
+
+    > .mynah-ui-title-description-icon-tip-title {
+        font-weight: bold;
+        margin-bottom: var(--mynah-sizing-half);
+    }
+    > .mynah-ui-title-description-icon-tip-body {
+        font-size: var(--mynah-font-size-medium);
+    }
 }

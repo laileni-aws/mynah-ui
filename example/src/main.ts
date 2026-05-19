@@ -17,7 +17,8 @@ import {
     QuickActionCommand,
     ChatItemButton,
     CustomQuickActionCommand,
-    DropdownListOption
+    DropdownListOption,
+    MynahUITabStoreTab
 } from '@aws/mynah-ui';
 import { mcpButton, mynahUIDefaults, promptTopBarTitle, rulesButton, tabbarButtons } from './config';
 import { Log, LogClear } from './logger';
@@ -43,6 +44,10 @@ import {
     exploreTabData,
     qAgentQuickActions,
     welcomeScreenTabData,
+    centeredTabHeaderTabData,
+    tipTabHeaderTabData,
+    welcomeIntroTabData,
+    noIconCenteredTabHeaderTabData,
     exampleConfirmationButtons,
     exampleButtons,
     exampleStatusButtons,
@@ -60,6 +65,16 @@ import escapeHTML from 'escape-html';
 import './styles/styles.scss';
 import { ThemeBuilder } from './theme-builder/theme-builder';
 import { Commands } from './commands';
+
+// Dispatch map for tab header introduction examples. Keeps the switch
+// in onQuickActionCommandGroupActionClick a single case instead of one
+// branch per command.
+const tabHeaderIntroExamples: Partial<Record<Commands, MynahUITabStoreTab>> = {
+    [Commands.OPEN_TAB_HEADER_CENTERED]: centeredTabHeaderTabData,
+    [Commands.OPEN_TAB_HEADER_WITH_TIP]: tipTabHeaderTabData,
+    [Commands.OPEN_WELCOME_INTRO_TAB]: welcomeIntroTabData,
+    [Commands.OPEN_NO_ICON_CENTERED_TAB]: noIconCenteredTabHeaderTabData,
+};
 
 export const createMynahUI = (initialData?: MynahUIDataModel): MynahUI => {
     const connector = new Connector();
@@ -1783,6 +1798,12 @@ here to see if it gets cut off properly as expected, with an ellipsis through cs
                 case Commands.BORDERED_CARDS:
                     mynahUI.addChatItem(tabId, exampleBorderedCard());
                     mynahUI.addChatItem(tabId, defaultFollowUps);
+                    break;
+                case Commands.OPEN_TAB_HEADER_CENTERED:
+                case Commands.OPEN_TAB_HEADER_WITH_TIP:
+                case Commands.OPEN_WELCOME_INTRO_TAB:
+                case Commands.OPEN_NO_ICON_CENTERED_TAB:
+                    mynahUI.updateStore('', tabHeaderIntroExamples[prompt.command as Commands]?.store ?? {});
                     break;
                 case Commands.CONFIRMATION_BUTTONS:
                     mynahUI.addChatItem(tabId, exampleConfirmationButtons);
