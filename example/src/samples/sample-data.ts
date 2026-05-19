@@ -2654,3 +2654,103 @@ export const sampleRulesList: DetailedList = {selectable: 'clickable', list: [{c
     description: 'README',actions: [{ id: 'README.md', icon: MynahIcons.OK, status: 'clear' }]}]}, 
     {groupName: '.amazonq/rules', childrenIndented: true, icon: MynahIcons.FOLDER , actions: [{ id: 'java-expert.md', icon: MynahIcons.OK, status: 'clear' }], children: [{id: 'java-expert.md', icon: MynahIcons.CHECK_LIST, 
     description: 'java-expert',actions: [{ id: 'java-expert.md', icon: MynahIcons.OK, status: 'clear' }]}]}]}
+
+
+// -----------------------------------------------------------------------------
+// Tab header introduction examples (TitleDescriptionWithIcon: centered + tip)
+// -----------------------------------------------------------------------------
+
+/**
+ * Minimal centered tab header. Shows the new `centered` flag stacking icon
+ * over title in a single column. No tip, no description.
+ */
+export const centeredTabHeaderTabData: MynahUITabStoreTab = {
+    isSelected: false,
+    store: {
+        tabTitle: 'Centered header',
+        tabBackground: false,
+        compactMode: false,
+        promptInputPlaceholder: 'Type your question',
+        chatItems: [],
+        tabHeaderDetails: {
+            icon: MynahIcons.Q,
+            title: 'Amazon Q',
+            centered: true,
+        },
+    },
+};
+
+/**
+ * Default (left-aligned) tab header layout extended with the new `tip` card.
+ * Demonstrates that the tip card renders alongside the existing
+ * `icon | title` two-column grid without any layout regression.
+ */
+export const tipTabHeaderTabData: MynahUITabStoreTab = {
+    isSelected: false,
+    store: {
+        tabTitle: 'Tip header',
+        tabBackground: false,
+        compactMode: false,
+        promptInputPlaceholder: 'Type your question',
+        chatItems: [],
+        tabHeaderDetails: {
+            icon: MynahIcons.MAGIC,
+            title: 'Workspace context',
+            tip: {
+                title: 'Did you know?',
+                body: 'Pinned context is always included in future chat messages.',
+            },
+            description: 'Type @ to attach files or saved prompts to your next message.',
+        },
+    },
+};
+
+/**
+ * Centered welcome splash without an icon. Confirms `icon` stays optional
+ * and the centered layout still applies for icon-less consumers.
+ */
+export const noIconCenteredTabHeaderTabData: MynahUITabStoreTab = {
+    isSelected: false,
+    store: {
+        tabTitle: 'No-icon centered',
+        tabBackground: false,
+        compactMode: false,
+        promptInputPlaceholder: 'Type your question',
+        chatItems: [],
+        tabHeaderDetails: {
+            title: 'Amazon Q',
+            tip: {
+                title: 'Did you know?',
+                body: 'You can omit the icon and still use the centered layout.',
+            },
+            description: 'Type a question or use `/` to see quick actions.',
+            centered: true,
+        },
+    },
+};
+
+/**
+ * Full Amazon Q welcome introduction surface. Combines the new `centered`
+ * layout with `tip` and `description` so the entire splash is owned by
+ * `tabHeaderDetails` (the host only passes data, mynah-ui handles styling).
+ */
+export const welcomeIntroTabData: MynahUITabStoreTab = {
+    isSelected: false,
+    store: {
+        tabTitle: 'Welcome intro',
+        tabBackground: false,
+        compactMode: false,
+        promptInputPlaceholder: 'Ask a question. Use @ to add context, / for quick actions',
+        chatItems: [],
+        tabHeaderDetails: {
+            icon: MynahIcons.Q,
+            title: 'Amazon Q',
+            tip: {
+                title: 'Did you know?',
+                body: 'Pinned context is always included in future chat messages.',
+            },
+            description: 'Select code & ask me to explain, debug or optimize it, or type `/` for quick actions.',
+            centered: true,
+        },
+    },
+};

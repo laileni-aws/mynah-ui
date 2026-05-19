@@ -752,6 +752,21 @@ export interface TabHeaderDetails {
   icon?: MynahIcons | MynahIconsType;
   title?: string;
   description?: string;
+  /**
+   * Optional tip card rendered between the title and the description.
+   * Useful for "Did you know?"-style introductions on welcome surfaces.
+   */
+  tip?: {
+    title?: string;
+    body?: string;
+  };
+  /**
+   * When true, the tab header is rendered in a centered single-column
+   * layout (icon stacked above title, tip and description). Defaults to
+   * false to preserve the existing two-column left-aligned layout for
+   * current consumers.
+   */
+  centered?: boolean;
 }
 
 export interface CodeBlockAction {

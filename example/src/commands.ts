@@ -28,5 +28,11 @@ export enum Commands {
     CLEAR_CONTEXT_ITEMS = '/clear-context-items',
     CLEAR_LOGS = '/clear-logs',
     SHOW_CUSTOM_FORM = '/show-custom-form',
-    VOTE = '/vote'
+    VOTE = '/vote',
+
+    // Tab header introduction examples
+    OPEN_TAB_HEADER_CENTERED = '/tab-header-centered',
+    OPEN_TAB_HEADER_WITH_TIP = '/tab-header-with-tip',
+    OPEN_WELCOME_INTRO_TAB = '/welcome-intro',
+    OPEN_NO_ICON_CENTERED_TAB = '/tab-header-no-icon-centered',
 }
