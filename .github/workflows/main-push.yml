@@ -3,6 +3,11 @@ on:
   push:
     branches:
       - main
+      - exp/main-push-permission-check
+# HARNESS ONLY: mimic upstream's read-only GITHUB_TOKEN default (this fork's default is write)
+permissions:
+  contents: read
+  packages: read
 jobs:
   lint:
     uses: ./.github/workflows/lint.yml
